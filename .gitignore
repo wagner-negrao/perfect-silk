@@ -1,0 +1,25 @@
+# Dependências
+node_modules/
+
+# Build e cache
+dist/
+.vite-react-ssg-temp/
+coverage/
+*.tsbuildinfo
+
+# Variáveis de ambiente (podem conter segredos)
+.env
+.env.*
+!.env.example
+
+# Configurações locais do Claude Code
+.claude/settings.local.json
+
+# Planejamento interno (não publicar)
+PLAN.md
+
+# Sistema operacional e editores
+.DS_Store
+.idea/
+.vscode/
+*.log
