@@ -20,7 +20,7 @@ Todos os botões de orçamento abrem o WhatsApp `(91) 98136-5656` com a mensagem
 ## Stack
 
 - React 18 + TypeScript
-- Vite + [vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg) (pré-renderização)
+- Vite + [vite-react-ssg] (pré-renderização)
 - React Router e react-helmet-async
 - CSS Modules com tokens em variáveis CSS
 - Vitest, Testing Library e jest-axe
@@ -66,10 +66,20 @@ scripts/        geração de sitemap/robots, otimização de imagens
 public/images/  imagens em WebP exportadas do Figma
 ```
 
+## Versionamento e rollback
+
+- Trabalho em `develop`. Todo commit vai para esse branch. A `main` só recebe código validado, por merge.
+- Versões são tags anotadas na `main`, no formato `vMAJOR.MINOR.PATCH`. Versão atual: `v0.1.0`.
+- Para desfazer um commit ruim, use `git revert <hash>` no `develop` e depois faça o merge na `main`. Não use `reset --hard` nem `push --force`.
+- Para reverter o site no ar rapidamente, use o rollback da Cloudflare Pages: na aba **Deployments**, abra uma versão anterior e escolha **Rollback**. Depois corrija o código com `git revert`, porque o próximo push na `main` publica de novo.
+- Todo push na `develop` abre automaticamente um PR para a `main` (workflow em `.github/workflows/pr-develop-to-main.yml`). Só há um PR aberto por vez; os commits seguintes aparecem nele.
+- Antes de ir para a `main`, o `develop` pode ser testado pela URL de preview que a Cloudflare gera para cada branch.
+- Para criar uma nova versão: `git tag -a vX.Y.Z -m "descrição" <commit>` na `main` e `git push origin vX.Y.Z`.
+
 ## Deploy (Cloudflare Pages)
 
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Para o ambiente de teste, defina a variável `VITE_SITE_NOINDEX=true` no preview.
 
-O projeto não tem variáveis de ambiente obrigatórias. Pendências antes de publicar estão em [TODO.md](TODO.md).
+O projeto não tem variáveis de ambiente obrigatórias. Pendências antes de publicar estão em [TODO.md](TODO.md). Regras para contribuir, incluindo o uso do branch `develop`, estão em [AGENTS.md](AGENTS.md).

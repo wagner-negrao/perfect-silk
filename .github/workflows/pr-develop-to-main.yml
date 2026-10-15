@@ -1,0 +1,27 @@
+name: PR develop → main
+
+on:
+  push:
+    branches: [develop]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Abrir ou atualizar PR develop → main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          EXISTING=$(gh pr list --repo "$REPO" --base main --head develop --state open --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            echo "PR #$EXISTING já aberto; o novo commit já aparece nele."
+            exit 0
+          fi
+          gh pr create --repo "$REPO" --base main --head develop \
+            --title "Release: develop → main" \
+            --body "PR aberto automaticamente a cada push na develop. Revise os commits antes de mesclar na main."
