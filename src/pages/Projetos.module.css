@@ -1,0 +1,21 @@
+.stack { display: flex; flex-direction: column; gap: 30px; }
+.intro { background: var(--paper); }
+.lead { font-size: 18px; line-height: 1.4; color: var(--muted); max-width: 977px; }
+.banner { width: 100%; height: 260px; object-fit: cover; border-radius: 14px; }
+.gallery { background: var(--white); }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 30px; }
+.card { display: flex; flex-direction: column; gap: 16px; line-height: 1.4; }
+.card img { width: 100%; height: 360px; object-fit: cover; border-radius: 14px; transition: transform 180ms ease; }
+.card:hover img { transform: translateY(-4px); }
+.card h3 { font-size: 24px; font-weight: 600; transition: color 180ms ease; }
+.card:hover h3 { color: var(--accent); }
+.card p { font-size: 17px; color: var(--muted); }
+.next { background: var(--paper); }
+
+@media (min-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) {
+  .lead { font-size: 20px; }
+  .banner { height: auto; aspect-ratio: 1480 / 530; }
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .card img { height: 420px; }
+}
