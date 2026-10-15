@@ -6,12 +6,21 @@ Instruções para agentes de IA e colaboradores que trabalham neste repositório
 
 - **Todo commit vai para o branch `develop`. Nunca commitar na `main`.**
 - A `main` só recebe código já validado em `develop`, e só por merge feito pelo responsável do projeto.
+- **Todo push na `develop` deve ter um Pull Request aberto para a `main`.** O workflow `.github/workflows/pr-develop-to-main.yml` abre esse PR automaticamente. Só existe um PR aberto de `develop` para `main` por vez; os commits seguintes aparecem nele.
+- Não mesclar o PR sem revisar os commits. Não fechar o PR sem o responsável do projeto.
 - Não fazer `push --force` em nenhum branch. Não reescrever o histórico da `main`.
 - Não fazer `git push` sem autorização explícita do responsável para aquela ação.
 - Não commitar `PLAN.md`, `.claude/settings.local.json`, `.env*`, `node_modules/` nem `dist/`. Eles já estão no `.gitignore`.
 - Mensagens de commit seguem Conventional Commits: `feat(escopo): ...`, `fix(escopo): ...`, `docs: ...`, `chore: ...`.
 - Todo commit termina com a linha:
   `Co-Authored-By: <modelo> <noreply@anthropic.com>`
+
+## Fluxo de PR
+
+1. Commit e push na `develop`.
+2. O workflow abre (ou reaproveita) o PR `develop → main`.
+3. O responsável revisa e mescla na `main`.
+4. Criar a tag de versão na `main` após o merge.
 
 ## Versionamento
 

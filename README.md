@@ -72,6 +72,7 @@ public/images/  imagens em WebP exportadas do Figma
 - Versões são tags anotadas na `main`, no formato `vMAJOR.MINOR.PATCH`. Versão atual: `v0.1.0`.
 - Para desfazer um commit ruim, use `git revert <hash>` no `develop` e depois faça o merge na `main`. Não use `reset --hard` nem `push --force`.
 - Para reverter o site no ar rapidamente, use o rollback da Cloudflare Pages: na aba **Deployments**, abra uma versão anterior e escolha **Rollback**. Depois corrija o código com `git revert`, porque o próximo push na `main` publica de novo.
+- Todo push na `develop` abre automaticamente um PR para a `main` (workflow em `.github/workflows/pr-develop-to-main.yml`). Só há um PR aberto por vez; os commits seguintes aparecem nele.
 - Antes de ir para a `main`, o `develop` pode ser testado pela URL de preview que a Cloudflare gera para cada branch.
 - Para criar uma nova versão: `git tag -a vX.Y.Z -m "descrição" <commit>` na `main` e `git push origin vX.Y.Z`.
 
