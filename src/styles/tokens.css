@@ -1,0 +1,17 @@
+:root {
+  --ink: #1a1a1a;
+  --muted: #333333;
+  --accent: #ff6600;
+  --paper: #f7f7f7;
+  --sage: #e9e9e9;
+  --white: #ffffff;
+  --dark: #1a1a1a;
+
+  --font-sans: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --container: 1480px;
+  --gutter: 30px;
+  --margin-desktop: 220px;
+  --margin-tablet: 48px;
+  --margin-mobile: 20px;
+}
