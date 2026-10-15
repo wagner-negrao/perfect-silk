@@ -1,0 +1,12 @@
+.section { background: var(--white); }
+.inner { display: flex; flex-direction: column; gap: 32px; }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 20px; }
+.card { display: flex; flex-direction: column; gap: 15px; }
+.card img { width: 100%; height: 320px; object-fit: cover; border-radius: 12px; }
+.card h3 { font-size: 18px; font-weight: 700; line-height: 1.35; }
+.card a { text-decoration: none; transition: color 180ms ease; }
+.card a:hover { color: var(--accent); }
+.card p { font-size: 14px; line-height: 1.35; color: var(--muted); }
+
+@media (min-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 30px; } }
+@media (min-width: 1024px) { .grid { grid-template-columns: repeat(4, 1fr); } }

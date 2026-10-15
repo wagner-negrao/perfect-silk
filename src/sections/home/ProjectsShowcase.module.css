@@ -1,0 +1,3 @@
+.section { background: var(--white); }
+.inner { display: flex; flex-direction: column; gap: 28px; }
+.lead { font-size: 16px; line-height: 1.45; color: var(--muted); max-width: 1480px; }

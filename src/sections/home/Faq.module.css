@@ -1,0 +1,2 @@
+.section { background: var(--paper); }
+.inner { display: flex; flex-direction: column; gap: 26px; }
