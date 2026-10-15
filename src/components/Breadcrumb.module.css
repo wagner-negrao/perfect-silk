@@ -1,0 +1,5 @@
+.nav { font-size: 12px; font-weight: 600; line-height: 1.4; text-transform: uppercase; color: var(--accent); }
+.nav ol { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; }
+.nav li + li::before { content: '/'; margin-right: 6px; }
+.nav a { text-decoration: none; }
+.nav a:hover { text-decoration: underline; }

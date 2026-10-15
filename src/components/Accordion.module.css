@@ -1,0 +1,11 @@
+.list { display: flex; flex-direction: column; width: 100%; }
+.item { display: flex; flex-direction: column; gap: 12px; padding-block: 16px; }
+.heading { margin: 0; font-size: 19px; line-height: 1.35; }
+.trigger {
+  display: block; width: 100%; max-width: 976px; padding: 0; border: 0; background: none;
+  font: inherit; font-weight: 700; color: var(--ink); text-align: left; cursor: pointer;
+  transition: color 180ms ease;
+}
+.trigger:hover { color: var(--accent); }
+.panel { max-width: 976px; font-size: 15px; line-height: 1.35; color: var(--muted); }
+.panel p { margin: 0; }
